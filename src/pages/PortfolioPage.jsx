@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { COMPANIES, IMAGES } from '../site-data.js';
+import { COMPANIES } from '../site-data.js';
 import { ButtonLink, PageFrame, siteHref } from '../ui.jsx';
 
 function CompanyVisual({ company }) {
@@ -32,12 +32,9 @@ function CompanyVisual({ company }) {
   );
 }
 
-function PortfolioCompanyCard({ company, featured = false }) {
+function PortfolioCompanyCard({ company }) {
   return (
-    <article
-      className={`portfolio-company-card ${featured ? 'portfolio-company-card-featured' : ''}`.trim()}
-      data-accent={company.accent}
-    >
+    <article className="portfolio-company-card" data-accent={company.accent}>
       <CompanyVisual company={company} />
       <div className="portfolio-company-card-body">
         <div className="portfolio-company-card-meta">
@@ -79,7 +76,6 @@ function HeroCard({ company, size = 'small', onClick }) {
 
 export function PortfolioPage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [featuredCompany, ...otherCompanies] = COMPANIES;
   const activeCompany = COMPANIES[activeIndex];
   const orderedCompanies = [
     ...COMPANIES.slice(activeIndex),
@@ -137,16 +133,9 @@ export function PortfolioPage() {
             />
             <HeroCard
               company={orderedCompanies[2]}
-              size="small"
+              size="peek"
               onClick={() => setActiveIndex((activeIndex + 2) % COMPANIES.length)}
             />
-            {orderedCompanies[3] ? (
-              <HeroCard
-                company={orderedCompanies[3]}
-                size="peek"
-                onClick={() => setActiveIndex((activeIndex + 3) % COMPANIES.length)}
-              />
-            ) : null}
           </div>
         </div>
       </section>
@@ -156,51 +145,18 @@ export function PortfolioPage() {
           <div className="portfolio-section-heading">
             <div>
               <p className="section-eyebrow">Selected companies</p>
-              <h2>A portfolio designed to show taste, not just logos.</h2>
+              <h2>Every company here should carry equal portfolio weight.</h2>
             </div>
             <p className="muted-copy">
-              Each company here signals something about how we invest: operator empathy,
-              practical utility and the belief that Latin American markets reward products
-              with durable everyday value.
+              The portfolio should read as a coherent set of founder bets, not as one hero
+              company plus supporting names.
             </p>
           </div>
 
           <div className="portfolio-company-grid">
-            <PortfolioCompanyCard company={featuredCompany} featured />
-            {otherCompanies.map((company) => (
+            {COMPANIES.map((company) => (
               <PortfolioCompanyCard key={company.name} company={company} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="page-section portfolio-founder-section">
-        <div className="shell portfolio-founder-grid">
-          <div className="portfolio-founder-photo">
-            <img src={IMAGES.tugerenteFounder} alt="Freddy Arredondo from tuGerente" />
-          </div>
-
-          <div className="portfolio-founder-copy">
-            <p className="section-eyebrow">Founder spotlight</p>
-            <h2>tuGerente is the clearest example of the kind of company-founder fit we want this page to communicate.</h2>
-            <p className="muted-copy">
-              A strong portfolio story is not only about market size. It is about a founder
-              close to the operating pain, a product that earns its place in daily workflows
-              and a business that can matter across multiple markets in the region.
-            </p>
-            <div className="detail-list">
-              <div className="detail-item">
-                <p className="meta-label">Founder</p>
-                <p className="meta-value">{featuredCompany.founder}</p>
-              </div>
-              <div className="detail-item">
-                <p className="meta-label">Current footprint</p>
-                <p className="meta-value">{featuredCompany.region}</p>
-              </div>
-            </div>
-            <ButtonLink href={siteHref('portfolio/tugerente/')} tone="ghost">
-              View the case study
-            </ButtonLink>
           </div>
         </div>
       </section>
