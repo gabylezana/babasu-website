@@ -14,6 +14,8 @@ import tugerenteFounder from '../assets/team/freddy-arredondo.jpg';
 import revaLogo from '../assets/portfolio/reva-logo.png';
 import mandaLogo from '../assets/portfolio/manda-logo.jpeg';
 import cirkulaLogo from '../assets/portfolio/cirkula-logo.png';
+import mobiAction from '../assets/portfolio/mobi-en-accion.jpeg';
+import mobiLogo from '../assets/portfolio/mobi-logo.jpeg';
 
 export const SITE = {
   name: 'Babasu Ventures',
@@ -239,6 +241,27 @@ export const COMPANIES = [
     cardImage: jimmyMichelle,
     cardLabel: 'Michelle & Jimmy',
     cardMeta: 'Cirkula',
+  },
+  {
+    name: 'Mobi',
+    stage: 'Selected company',
+    category: 'Mobility',
+    region: 'Bolivia',
+    summary:
+      'A mobility company building practical products for how people move in fast-changing urban environments.',
+    thesis:
+      'Represents our interest in founders building tangible products with strong local relevance and clear everyday utility.',
+    support:
+      'Part of the portfolio because it reflects product ambition tied to real-world usage, not abstract market narratives.',
+    accent: 'moss',
+    image: mobiAction,
+    heroImage: mobiAction,
+    cardImage: mobiAction,
+    logo: mobiLogo,
+    founder: 'Ariel Revollo',
+    founderRole: 'CEO',
+    cardLabel: 'Ariel Revollo',
+    cardMeta: 'CEO · Mobi',
   },
 ];
 
