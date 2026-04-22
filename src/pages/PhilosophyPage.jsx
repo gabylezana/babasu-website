@@ -46,9 +46,9 @@ export function PhilosophyPage() {
             <div className="philosophy-story-heading">
               <p className="section-eyebrow">Our philosophy</p>
               <h2>
-                <span>A Journey of Impact</span>
-                <span>From Experience to Excellence</span>
-                <span>Empowering Entrepreneurs</span>
+                <span>Our perspective starts</span>
+                <span>with operating reality,</span>
+                <span>not venture theater.</span>
               </h2>
             </div>
 
@@ -95,8 +95,7 @@ export function PhilosophyPage() {
             <div className="content-block philosophy-history-copy">
               <p className="section-eyebrow">Our history</p>
               <h2>
-                We champion sustainable investments that transform entrepreneurial vision
-                into enduring value.
+                Babasu was built on the idea that disciplined backing can turn founder ambition into durable value.
               </h2>
               {PHILOSOPHY_HISTORY.map((paragraph) => (
                 <p key={paragraph} className="muted-copy">

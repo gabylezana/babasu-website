@@ -290,15 +290,15 @@ export function ContactPage() {
       <section className="page-section">
         <div className="shell contact-page-grid">
           <div className="contact-page-intro">
-            <p className="section-eyebrow">For entrepreneurs</p>
-            <h2>Share your story with enough context for a productive first conversation.</h2>
+            <p className="section-eyebrow">Contact</p>
+            <h2>Share enough context for a productive first conversation.</h2>
             <p className="muted-copy">
-              We would love to hear from founders building with purpose, traction and a clear
-              understanding of the problem they are solving.
+              We want to hear from founders, collaborators and anyone reaching out with a
+              serious reason to connect to Babasu.
             </p>
             <p className="muted-copy">
-              The most useful submissions are concise and specific: what you do, who you serve,
-              where you operate, the stage you are in and what kind of support you are looking for.
+              The most useful messages are concise and specific: what you are building or asking
+              about, why it matters, where it fits and what kind of conversation you want to have.
             </p>
             <div className="contact-info-stack">
               <div className="contact-card">
@@ -311,8 +311,8 @@ export function ContactPage() {
               <div className="contact-card">
                 <h3>What we look for</h3>
                 <p className="muted-copy">
-                  Ambitious founders, strong operating insight, meaningful market pain and the potential
-                  to build lasting companies across the region.
+                  Ambitious founders, strong operating insight, real market pain and the potential
+                  to build durable companies across the region.
                 </p>
               </div>
             </div>

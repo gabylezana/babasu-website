@@ -45,7 +45,9 @@ export function Header({ pageKey, variant = 'default' }) {
     }
 
     const updateHeaderState = () => {
-      const hero = document.querySelector('.home-hero');
+      const hero = document.querySelector(
+        '.header-hero, .home-hero, .portfolio-prod-hero, .tugerente-stage, .page-hero',
+      );
       if (!hero) {
         setIsScrolled(window.scrollY > 24);
         return;

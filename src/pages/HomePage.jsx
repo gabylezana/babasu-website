@@ -118,7 +118,7 @@ export function HomePage() {
           <SectionIntro
             eyebrow="Selected portfolio"
             title="A portfolio of companies built for real operating markets."
-            body="Rather than spotlighting only a few names, the home page should hint at the full set of companies Babasu is backing today."
+            body="From software and fintech infrastructure to food rescue, sports tech and electric mobility, the portfolio reflects the range of operating problems we believe are worth backing early."
             action={
               <ButtonLink href={siteHref('portfolio/')} tone="ghost">
                 Open portfolio

@@ -36,7 +36,7 @@ export function TeamPage() {
         image={IMAGES.partnersCasual}
         eyebrow="Team"
         title="Entrepreneurship is in our DNA."
-        body="Where boldness and instinct meet. We like building long lasting relationships with the entrepreneurs we partner with. We are open-minded, new ideas are always welcome."
+        body="We back founders with the perspective of people who understand operators, markets and the long arc of building companies in Latin America."
         className="team-hero"
       />
 
