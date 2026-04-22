@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/babasu-website/',
   plugins: [react()],
   build: {
     rollupOptions: {
