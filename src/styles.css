@@ -1312,6 +1312,7 @@ img {
 .content-photo,
 .detail-photo {
   min-height: 420px;
+  max-height: 500px;
   border-radius: 28px;
   overflow: hidden;
 }
