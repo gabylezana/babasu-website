@@ -9,54 +9,56 @@ export function CompanyProfilePage({ slug }) {
     throw new Error(`Missing company profile for slug: ${slug}`);
   }
 
+  const heroImage = profile.stageImage || company.heroImage || company.image;
   const spotlightImage = profile.spotlight?.image || profile.stageImage || company.image;
-  const spotlightAlt = profile.spotlight?.alt || `${company.name} visual`;
   const closingImage = profile.closingImage || profile.stageImage || company.heroImage || company.image;
   const externalLabel = company.externalLabel || 'Visit company';
 
   return (
-    <PageFrame pageKey="portfolio">
-      <section className="tugerente-stage">
-        <div className="shell tugerente-stage-grid">
-          <div className="tugerente-stage-copy">
-            <p className="section-eyebrow">Portfolio / {company.name}</p>
-            <h1>{profile.heroTitle}</h1>
-            <p className="hero-body">{profile.heroBody}</p>
-            <div className="hero-actions">
-              {company.externalHref ? (
-                <a
-                  className="button-link button-primary"
-                  href={company.externalHref}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {externalLabel}
-                </a>
-              ) : null}
-              <ButtonLink href={siteHref('portfolio/')} tone="ghost">
-                Back to portfolio
-              </ButtonLink>
-            </div>
-          </div>
+    <PageFrame pageKey="portfolio" headerVariant="overlay">
+      <section
+        className="company-hero"
+        data-accent={company.accent}
+        style={{
+          backgroundImage: `linear-gradient(170deg, rgba(8, 20, 16, 0.36) 0%, rgba(8, 20, 16, 0.62) 48%, rgba(8, 20, 16, 0.90) 100%), url(${heroImage})`,
+        }}
+      >
+        <div className="shell company-hero-top">
+          <span>Portfolio · {company.name}</span>
+          {company.region && <span>{company.region}</span>}
+        </div>
 
-          <div className="tugerente-stage-panel">
-            <div className="tugerente-wordmark-card">
-              <span className="tugerente-wordmark-note">{profile.badgeNote || 'Portfolio company'}</span>
-              <strong>{company.name}</strong>
-              <p>{profile.badgeBody}</p>
+        <div className="shell company-hero-body">
+          {company.logo && (
+            <div className="company-hero-logo-pill">
+              <img src={company.logo} alt={company.name} />
             </div>
-            <div className="tugerente-stage-media">
-              <img src={profile.stageImage || company.heroImage || company.image} alt={`${company.name} cover`} />
-            </div>
+          )}
+          <h1>{profile.heroTitle}</h1>
+          <p className="hero-body">{profile.heroBody}</p>
+          <div className="hero-actions">
+            {company.externalHref ? (
+              <a
+                className="button-link button-primary"
+                href={company.externalHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {externalLabel}
+              </a>
+            ) : null}
+            <ButtonLink href={siteHref('portfolio/')} tone="secondary">
+              Back to portfolio
+            </ButtonLink>
           </div>
         </div>
 
-        <div className="shell tugerente-facts-grid">
+        <div className="shell company-hero-facts">
           {profile.facts.map((fact) => (
-            <article key={fact.label} className="tugerente-fact-card">
+            <div key={fact.label} className="company-fact-item">
               <span>{fact.label}</span>
               <strong>{fact.value}</strong>
-            </article>
+            </div>
           ))}
         </div>
       </section>
@@ -74,11 +76,11 @@ export function CompanyProfilePage({ slug }) {
           </div>
 
           <div className="tugerente-founder-card">
-            <img src={spotlightImage} alt={spotlightAlt} />
+            <img src={spotlightImage} alt={profile.spotlight?.alt || `${company.name} visual`} />
             <div>
-              <p className="meta-label">{profile.spotlight.label}</p>
-              <h3>{profile.spotlight.title}</h3>
-              <p className="muted-copy">{profile.spotlight.body}</p>
+              <p className="meta-label">{profile.spotlight?.label}</p>
+              <h3>{profile.spotlight?.title}</h3>
+              <p className="muted-copy">{profile.spotlight?.body}</p>
             </div>
           </div>
         </div>

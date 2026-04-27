@@ -1,5 +1,6 @@
 import { CTAButton } from './chrome.jsx';
 import { Reveal, useScrollY } from './hooks.jsx';
+import { siteHref } from './ui.jsx';
 
 export function Hero() {
   const y = useScrollY();
@@ -191,10 +192,10 @@ export function Hero() {
               justifyContent: 'center',
             }}
           >
-            <CTAButton href="#philosophy" variant="primary">
+            <CTAButton href={siteHref('philosophy/')} variant="primary">
               Our philosophy
             </CTAButton>
-            <CTAButton href="#portfolio" variant="ghost">
+            <CTAButton href={siteHref('portfolio/')} variant="ghost">
               Explore investments
             </CTAButton>
           </div>

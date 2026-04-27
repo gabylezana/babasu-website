@@ -1,4 +1,5 @@
 import { Reveal, useScrollY } from './hooks.jsx';
+import { siteHref } from './ui.jsx';
 import babasuLogoWhite from '../assets/logo-babasu-white.png';
 
 function BabasuMark({ size = 28, color = 'currentColor' }) {
@@ -52,10 +53,10 @@ export function Header() {
   const y = useScrollY();
   const scrolled = y > 40;
   const links = [
-    { label: 'Philosophy', href: '#philosophy' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Team', href: '#team' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Philosophy', href: siteHref('philosophy/') },
+    { label: 'Portfolio', href: siteHref('portfolio/') },
+    { label: 'Team', href: siteHref('team/') },
+    { label: 'Contact', href: siteHref('contact/') },
   ];
   return (
     <header
@@ -352,10 +353,10 @@ export function Footer() {
           <FooterCol
             label="Navigation"
             items={[
-              ['Philosophy', '#philosophy'],
-              ['Portfolio', '#portfolio'],
-              ['Team', '#team'],
-              ['Contact', '#contact'],
+              ['Philosophy', siteHref('philosophy/')],
+              ['Portfolio', siteHref('portfolio/')],
+              ['Team', siteHref('team/')],
+              ['Contact', siteHref('contact/')],
             ]}
           />
           <FooterCol

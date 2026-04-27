@@ -79,30 +79,57 @@ function PortfolioCompanyCard({ company }) {
   );
 }
 
-function HeroCard({ company, size = 'small', onClick }) {
+function HeroSpotlightPanel({ company }) {
+  const hasInternalProfile = Boolean(company.href);
+  const hasExternalLink = Boolean(company.externalHref);
+
   return (
-    <button
-      type="button"
-      className={`portfolio-prod-card portfolio-prod-card-${size}`.trim()}
-      onClick={onClick}
-      aria-label={`Show ${company.name}`}
-    >
-      <img src={company.cardImage || company.heroImage || company.image} alt={company.name} />
-      <div className="portfolio-prod-card-overlay">
-        <strong>{company.cardLabel || company.name}</strong>
-        <span>{company.cardMeta || company.category}</span>
+    <article className="portfolio-spotlight-card" data-accent={company.accent}>
+      <div className="portfolio-spotlight-head">
+        <div
+          className={`portfolio-spotlight-brand ${company.logo ? 'has-logo' : 'has-wordmark'}`.trim()}
+          aria-label={company.name}
+        >
+          {company.logo ? <img src={company.logo} alt={`${company.name} logo`} /> : <strong>{company.name}</strong>}
+        </div>
+        <div className="portfolio-spotlight-meta">
+          <span>{company.stage}</span>
+          <span>{company.category}</span>
+        </div>
       </div>
-    </button>
+
+      <div className="portfolio-spotlight-copy">
+        <span className="portfolio-spotlight-kicker">Company spotlight</span>
+        <h2>{company.name}</h2>
+        {company.founder ? (
+          <p className="portfolio-spotlight-founder">
+            {company.founderRole} · {company.founder}
+          </p>
+        ) : null}
+        <p className="portfolio-spotlight-summary">{company.summary}</p>
+      </div>
+
+      {hasInternalProfile || hasExternalLink ? (
+        <div className="portfolio-spotlight-actions">
+          {hasInternalProfile ? (
+            <a className="button-link button-primary" href={siteHref(company.href)}>
+              View company profile
+            </a>
+          ) : null}
+          {hasExternalLink ? (
+            <a className="button-link button-secondary" href={company.externalHref} target="_blank" rel="noreferrer">
+              {company.externalLabel || 'Visit landing'}
+            </a>
+          ) : null}
+        </div>
+      ) : null}
+    </article>
   );
 }
 
 export function PortfolioPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeCompany = COMPANIES[activeIndex];
-  const orderedCompanies = [
-    ...COMPANIES.slice(activeIndex),
-    ...COMPANIES.slice(0, activeIndex),
-  ];
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -117,11 +144,11 @@ export function PortfolioPage() {
       <section
         className="portfolio-prod-hero header-hero"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(10, 18, 15, 0.68) 0%, rgba(10, 18, 15, 0.54) 36%, rgba(10, 18, 15, 0.42) 60%, rgba(10, 18, 15, 0.68) 100%), url(${activeCompany.heroImage || activeCompany.image})`,
+          backgroundImage: `linear-gradient(90deg, rgba(7, 15, 12, 0.84) 0%, rgba(7, 15, 12, 0.7) 34%, rgba(7, 15, 12, 0.46) 60%, rgba(7, 15, 12, 0.64) 100%), url(${activeCompany.heroImage || activeCompany.image})`,
         }}
       >
         <div className="shell portfolio-hero-meta">
-          <span>Babasu Ventures · Portfolio</span>
+          <span>Portfolio rotation</span>
           <span>{activeCompany.region}</span>
         </div>
 
@@ -147,22 +174,6 @@ export function PortfolioPage() {
                 Let&apos;s connect
               </ButtonLink>
             </div>
-            <article className="portfolio-active-brief" data-accent={activeCompany.accent}>
-              <div className="portfolio-active-topline">
-                <span>Currently in focus</span>
-                <span>{activeCompany.category}</span>
-              </div>
-              <div className="portfolio-active-headline">
-                <strong>{activeCompany.name}</strong>
-                <span>{activeCompany.region}</span>
-              </div>
-              <p>{activeCompany.summary}</p>
-              {activeCompany.href ? (
-                <a className="page-link" href={siteHref(activeCompany.href)}>
-                  View company profile
-                </a>
-              ) : null}
-            </article>
             <div className="portfolio-prod-dots">
               {COMPANIES.map((company, index) => (
                 <button
@@ -177,17 +188,7 @@ export function PortfolioPage() {
           </div>
 
           <div className="portfolio-prod-carousel">
-            <HeroCard company={orderedCompanies[0]} size="large" onClick={() => setActiveIndex(activeIndex)} />
-            <HeroCard
-              company={orderedCompanies[1]}
-              size="medium"
-              onClick={() => setActiveIndex((activeIndex + 1) % COMPANIES.length)}
-            />
-            <HeroCard
-              company={orderedCompanies[2]}
-              size="peek"
-              onClick={() => setActiveIndex((activeIndex + 2) % COMPANIES.length)}
-            />
+            <HeroSpotlightPanel company={activeCompany} />
           </div>
         </div>
 

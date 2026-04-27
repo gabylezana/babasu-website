@@ -33,10 +33,7 @@ export function Wordmark() {
 
 export function Header({ pageKey, variant = 'default' }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const navItems =
-    variant === 'overlay'
-      ? NAV_ITEMS.filter((item) => item.key !== 'home')
-      : NAV_ITEMS;
+  const navItems = NAV_ITEMS;
 
   useEffect(() => {
     if (variant !== 'overlay') {

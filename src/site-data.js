@@ -22,11 +22,10 @@ export const SITE = {
   tagline: 'The seeds that will become the forest.',
   email: 'INFO@BABASUVENTURES.COM',
   location: 'Santa Cruz de la Sierra, Bolivia',
-  linkedIn: 'https://www.linkedin.com',
+  linkedIn: 'https://www.linkedin.com/company/babasu/',
 };
 
 export const NAV_ITEMS = [
-  { key: 'home', label: 'Home', href: '' },
   { key: 'philosophy', label: 'Philosophy', href: 'philosophy/' },
   { key: 'portfolio', label: 'Portfolio', href: 'portfolio/' },
   { key: 'team', label: 'Team', href: 'team/' },
