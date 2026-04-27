@@ -2,10 +2,8 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const base = process.env.VITE_BASE_PATH || '/babasu-website/';
-
 export default defineConfig({
-  base,
+  base: '/',
   plugins: [react()],
   build: {
     rollupOptions: {
