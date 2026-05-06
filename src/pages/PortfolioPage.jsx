@@ -3,10 +3,12 @@ import { COMPANIES } from '../site-data.js';
 import { ButtonLink, PageFrame, siteHref } from '../ui.jsx';
 
 function CompanyVisual({ company }) {
-  if (company.logo && company.image && company.logo !== company.image) {
+  const visualImage = company.cardImage || company.image;
+
+  if (company.logo && visualImage && company.logo !== visualImage) {
     return (
       <div className="portfolio-company-visual has-image">
-        <img src={company.image} alt={company.name} />
+        <img src={visualImage} alt={company.name} />
         <div className="portfolio-company-logo-badge">
           <img src={company.logo} alt={`${company.name} logo`} />
         </div>
@@ -14,12 +16,12 @@ function CompanyVisual({ company }) {
     );
   }
 
-  if (company.image) {
+  if (visualImage) {
     const visualClass = company.visualStyle === 'logo' ? 'has-logo' : 'has-image';
 
     return (
       <div className={`portfolio-company-visual ${visualClass}`.trim()}>
-        <img src={company.image} alt={company.name} />
+        <img src={visualImage} alt={company.name} />
       </div>
     );
   }
@@ -34,7 +36,10 @@ function CompanyVisual({ company }) {
 
 function PortfolioCompanyCard({ company }) {
   const hasInternalProfile = Boolean(company.href);
-  const hasExternalLink = Boolean(company.externalHref);
+  const primaryHref = hasInternalProfile ? siteHref(company.href) : company.externalHref;
+  const primaryLabel = hasInternalProfile
+    ? 'View company profile'
+    : (company.externalLabel || 'Visit landing');
 
   return (
     <article className="portfolio-company-card" data-accent={company.accent}>
@@ -58,18 +63,16 @@ function PortfolioCompanyCard({ company }) {
           <span className="portfolio-copy-label">Why it fits Babasu</span>
           <p className="portfolio-company-support">{company.support}</p>
         </div>
-        {hasInternalProfile || hasExternalLink ? (
+        {primaryHref ? (
           <div className="portfolio-card-links">
-            {hasInternalProfile ? (
-              <a className="page-link" href={siteHref(company.href)}>
-                View company profile
-              </a>
-            ) : null}
-            {hasExternalLink ? (
-              <a className="page-link" href={company.externalHref} target="_blank" rel="noreferrer">
-                {company.externalLabel || 'Visit landing'}
-              </a>
-            ) : null}
+            <a
+              className="page-link"
+              href={primaryHref}
+              target={hasInternalProfile ? undefined : '_blank'}
+              rel={hasInternalProfile ? undefined : 'noreferrer'}
+            >
+              {primaryLabel}
+            </a>
           </div>
         ) : (
           <p className="portfolio-card-note">Selected portfolio company</p>
@@ -79,9 +82,12 @@ function PortfolioCompanyCard({ company }) {
   );
 }
 
-function HeroSpotlightPanel({ company }) {
+function HeroSpotlightPanel({ company, index, total }) {
   const hasInternalProfile = Boolean(company.href);
-  const hasExternalLink = Boolean(company.externalHref);
+  const primaryHref = hasInternalProfile ? siteHref(company.href) : company.externalHref;
+  const primaryLabel = hasInternalProfile
+    ? 'View company profile'
+    : (company.externalLabel || 'Visit landing');
 
   return (
     <article className="portfolio-spotlight-card" data-accent={company.accent}>
@@ -99,30 +105,26 @@ function HeroSpotlightPanel({ company }) {
       </div>
 
       <div className="portfolio-spotlight-copy">
-        <span className="portfolio-spotlight-kicker">Company spotlight</span>
+        <span className="portfolio-spotlight-kicker">Current company</span>
         <h2>{company.name}</h2>
-        {company.founder ? (
-          <p className="portfolio-spotlight-founder">
-            {company.founderRole} · {company.founder}
-          </p>
-        ) : null}
         <p className="portfolio-spotlight-summary">{company.summary}</p>
       </div>
 
-      {hasInternalProfile || hasExternalLink ? (
-        <div className="portfolio-spotlight-actions">
-          {hasInternalProfile ? (
-            <a className="button-link button-primary" href={siteHref(company.href)}>
-              View company profile
-            </a>
-          ) : null}
-          {hasExternalLink ? (
-            <a className="button-link button-secondary" href={company.externalHref} target="_blank" rel="noreferrer">
-              {company.externalLabel || 'Visit landing'}
-            </a>
-          ) : null}
-        </div>
-      ) : null}
+      <div className="portfolio-spotlight-footer">
+        <span className="portfolio-spotlight-count">
+          {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+        </span>
+        {primaryHref ? (
+          <a
+            className="portfolio-spotlight-link"
+            href={primaryHref}
+            target={hasInternalProfile ? undefined : '_blank'}
+            rel={hasInternalProfile ? undefined : 'noreferrer'}
+          >
+            {primaryLabel}
+          </a>
+        ) : null}
+      </div>
     </article>
   );
 }
@@ -170,9 +172,6 @@ export function PortfolioPage() {
               <ButtonLink href="#selected-companies" tone="primary">
                 View all companies
               </ButtonLink>
-              <ButtonLink href={siteHref('contact/')} tone="secondary">
-                Let&apos;s connect
-              </ButtonLink>
             </div>
             <div className="portfolio-prod-dots">
               {COMPANIES.map((company, index) => (
@@ -188,28 +187,30 @@ export function PortfolioPage() {
           </div>
 
           <div className="portfolio-prod-carousel">
-            <HeroSpotlightPanel company={activeCompany} />
+            <HeroSpotlightPanel
+              company={activeCompany}
+              index={activeIndex}
+              total={COMPANIES.length}
+            />
           </div>
         </div>
 
-        <div className="shell portfolio-hero-bottom">
-          <div className="portfolio-hero-index">
-            <span>Current focus</span>
-            <strong>{String(activeIndex + 1).padStart(2, '0')} / {String(COMPANIES.length).padStart(2, '0')}</strong>
+        <div className="shell portfolio-hero-strip">
+          <div>
+            <span>Current company</span>
+            <strong>{activeCompany.name}</strong>
           </div>
-          <div className="portfolio-hero-principles">
-            <div>
-              <span>Product</span>
-              <strong>{activeCompany.category}</strong>
-            </div>
-            <div>
-              <span>Region</span>
-              <strong>{activeCompany.region}</strong>
-            </div>
-            <div>
-              <span>Lens</span>
-              <strong>Operational utility</strong>
-            </div>
+          <div>
+            <span>Product</span>
+            <strong>{activeCompany.category}</strong>
+          </div>
+          <div>
+            <span>Region</span>
+            <strong>{activeCompany.region}</strong>
+          </div>
+          <div>
+            <span>Lens</span>
+            <strong>Operational utility</strong>
           </div>
         </div>
       </section>

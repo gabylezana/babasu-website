@@ -33,6 +33,7 @@ export function Wordmark() {
 
 export function Header({ pageKey, variant = 'default' }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = NAV_ITEMS;
 
   useEffect(() => {
@@ -65,26 +66,75 @@ export function Header({ pageKey, variant = 'default' }) {
     };
   }, [variant]);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pageKey, variant]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      document.body.style.overflow = '';
+      return undefined;
+    }
+
+    const closeMenu = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const syncWithViewport = () => {
+      if (window.innerWidth > 720) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', closeMenu);
+    window.addEventListener('resize', syncWithViewport);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', closeMenu);
+      window.removeEventListener('resize', syncWithViewport);
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
       className={`site-header site-header-${variant} ${
         isScrolled ? 'site-header-scrolled' : ''
-      }`}
+      } ${isMenuOpen ? 'site-header-menu-open' : ''}`}
     >
       <div className="shell nav-shell">
         <a className="brand-link brand-image-link" href={siteHref()} aria-label={SITE.name}>
           <img className="brand-image" src={babasuLogoWhite} alt="Babasu Ventures" />
         </a>
-        <nav className="site-nav" aria-label="Primary">
+        <button
+          type="button"
+          className="nav-menu-toggle"
+          aria-expanded={isMenuOpen}
+          aria-controls="site-primary-nav"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setIsMenuOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav id="site-primary-nav" className="site-nav" aria-label="Primary">
           {navItems.map((item) => (
             <a
               key={item.key}
               className={item.key === pageKey ? 'is-active' : undefined}
               href={siteHref(item.href)}
+              onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
             </a>
           ))}
+          <a className="nav-button nav-button-mobile" href={siteHref('contact/')} onClick={() => setIsMenuOpen(false)}>
+            Get in touch
+          </a>
         </nav>
         <a className="nav-button" href={siteHref('contact/')}>
           Get in touch

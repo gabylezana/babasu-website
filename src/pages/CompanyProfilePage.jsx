@@ -19,6 +19,7 @@ export function CompanyProfilePage({ slug }) {
       <section
         className="company-hero"
         data-accent={company.accent}
+        data-company={slug}
         style={{
           backgroundImage: `linear-gradient(170deg, rgba(8, 20, 16, 0.36) 0%, rgba(8, 20, 16, 0.62) 48%, rgba(8, 20, 16, 0.90) 100%), url(${heroImage})`,
         }}
@@ -29,27 +30,29 @@ export function CompanyProfilePage({ slug }) {
         </div>
 
         <div className="shell company-hero-body">
-          {company.logo && (
-            <div className="company-hero-logo-pill">
-              <img src={company.logo} alt={company.name} />
+          <div className="company-hero-copy-panel">
+            {company.logo && (
+              <div className="company-hero-logo-pill">
+                <img src={company.logo} alt={company.name} />
+              </div>
+            )}
+            <h1>{profile.heroTitle}</h1>
+            <p className="hero-body">{profile.heroBody}</p>
+            <div className="hero-actions">
+              {company.externalHref ? (
+                <a
+                  className="button-link button-primary"
+                  href={company.externalHref}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {externalLabel}
+                </a>
+              ) : null}
+              <ButtonLink href={siteHref('portfolio/')} tone="secondary">
+                Back to portfolio
+              </ButtonLink>
             </div>
-          )}
-          <h1>{profile.heroTitle}</h1>
-          <p className="hero-body">{profile.heroBody}</p>
-          <div className="hero-actions">
-            {company.externalHref ? (
-              <a
-                className="button-link button-primary"
-                href={company.externalHref}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {externalLabel}
-              </a>
-            ) : null}
-            <ButtonLink href={siteHref('portfolio/')} tone="secondary">
-              Back to portfolio
-            </ButtonLink>
           </div>
         </div>
 

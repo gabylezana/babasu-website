@@ -10,6 +10,9 @@ import veronicaPortrait from '../assets/team/veronica-cespedes.jpg';
 import betoPortrait from '../assets/team/beto-saavedra.png';
 import brunoPortrait from '../assets/team/bruno-ayllon.jpg';
 import tugerenteStage from '../uploads/tugerente.png';
+import tugerenteHeroTeam from '../assets/portfolio/tugerente-hero-team.jpeg';
+import tugerenteCardCover from '../assets/portfolio/tugerente-card-cover.png';
+import tugerenteLogo from '../assets/portfolio/tugerente-logo.png';
 import tugerenteFounder from '../assets/team/freddy-arredondo.jpg';
 import revaLogo from '../assets/portfolio/reva-logo.png';
 import mandaLogo from '../assets/portfolio/manda-logo.jpeg';
@@ -179,8 +182,9 @@ export const COMPANIES = [
     externalLabel: 'Visit landing',
     accent: 'terra',
     image: tugerenteStage,
-    heroImage: tugerenteStage,
-    cardImage: tugerenteStage,
+    heroImage: tugerenteHeroTeam,
+    cardImage: tugerenteCardCover,
+    logo: tugerenteLogo,
     founder: 'Freddy Arredondo',
     founderRole: 'CEO',
     cardLabel: 'Freddy Arredondo',
@@ -286,9 +290,9 @@ export const COMPANIES = [
 export const COMPANY_PROFILES = {
   tugerente: {
     heroTitle:
-      'Administrative software built for SMEs that need more control, not more complexity.',
+      'ERP software for SMEs that need more control.',
     heroBody:
-      'tuGerente reflects the kind of company Babasu wants its portfolio to be known for: practical software, real operating value and a product that can matter every single day inside the business.',
+      'tuGerente brings finance, inventory and operations into one practical system for everyday business decisions.',
     badgeNote: 'Featured company',
     badgeBody:
       'Software that helps SMEs organize finance, inventory and day-to-day execution.',
@@ -338,14 +342,14 @@ export const COMPANY_PROFILES = {
       'The company is operator-led, useful, regionally relevant and anchored in concrete business outcomes rather than broad category narratives.',
       'That combination of recurring utility and regional relevance is exactly what makes the business compelling.',
     ],
-    stageImage: tugerenteStage,
+    stageImage: tugerenteHeroTeam,
     closingImage: tugerenteStage,
   },
   reva: {
     heroTitle:
-      'Sports infrastructure software for clubs, tournaments and amateur players.',
+      'Operating software for sports clubs and tournaments.',
     heroBody:
-      'Reva digitizes how sports complexes operate, from bookings and payments to tournament publishing and player communication.',
+      'Reva connects bookings, payments and player communication in one practical workflow.',
     badgeNote: 'Portfolio company',
     badgeBody:
       'A sports-tech workflow that helps clubs sell more available time and makes booking easier for players.',
@@ -401,9 +405,9 @@ export const COMPANY_PROFILES = {
   },
   manda: {
     heroTitle:
-      'Fintech infrastructure for teams that want to launch faster and build less from scratch.',
+      'Fintech infrastructure for faster product launches.',
     heroBody:
-      'Manda develops modular financial infrastructure so organizations can deploy fintech products quickly through a no-code or low-code approach.',
+      'Manda gives teams modular financial components to launch products with less build time.',
     badgeNote: 'Portfolio company',
     badgeBody:
       'A modular fintech stack built to reduce the cost and time required to launch wallets and financial features.',
@@ -459,9 +463,9 @@ export const COMPANY_PROFILES = {
   },
   cirkula: {
     heroTitle:
-      'A food-surplus marketplace that turns excess inventory into revenue instead of waste.',
+      'Surplus food turned into revenue, not waste.',
     heroBody:
-      'Cirkula helps restaurants and food retailers sell quality surplus food at attractive prices, creating a clear economic incentive to waste less.',
+      'Cirkula helps merchants sell quality excess inventory while giving consumers better prices.',
     badgeNote: 'Portfolio company',
     badgeBody:
       'A marketplace where merchant economics, consumer savings and waste reduction reinforce each other.',
@@ -517,9 +521,9 @@ export const COMPANY_PROFILES = {
   },
   mobi: {
     heroTitle:
-      'Electric mobility, subscription access and rider income in one operating model.',
+      'Electric mobility designed around rider income.',
     heroBody:
-      'Mobi Latam gives delivery workers access to electric motorcycles through a subscription model designed to increase earning capacity and lower friction around vehicle access.',
+      'Mobi gives delivery workers access to electric motorcycles through an all-in subscription model.',
     badgeNote: 'Portfolio company',
     badgeBody:
       'A Rider-as-a-Service model that combines electric hardware, leasing logic and software into one mobility product.',
