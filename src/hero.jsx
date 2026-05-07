@@ -134,7 +134,7 @@ export function Hero() {
               marginBottom: 28,
             }}
           >
-            — Babasu Ventures · Est. 2021
+            — Babasu Ventures · Est. 2024
           </div>
         </Reveal>
 
@@ -244,7 +244,7 @@ export function Hero() {
               fontFamily: 'var(--font-body)',
             }}
           >
-            <Stat label="Founded" value="2021" />
+            <Stat label="Founded" value="2024" />
             <Stat label="Stage" value="Pre-seed · Seed" />
             <Stat label="Geography" value="Latin America" />
             <Stat label="HQ" value="Santa Cruz, BO" />

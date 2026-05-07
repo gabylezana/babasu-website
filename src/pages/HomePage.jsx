@@ -40,7 +40,7 @@ export function HomePage() {
         </div>
 
         <div className="shell home-hero-content">
-          <p className="home-hero-kicker">— Babasu Ventures · Est. 2021</p>
+          <p className="home-hero-kicker">— Babasu Ventures · Est. 2024</p>
           <h1>
             The seeds that will
             <br />
@@ -71,7 +71,7 @@ export function HomePage() {
           <div className="home-hero-stats">
             <div>
               <span>Founded</span>
-              <strong>2021</strong>
+              <strong>2024</strong>
             </div>
             <div>
               <span>Stage</span>
@@ -137,7 +137,7 @@ export function HomePage() {
 
       <section className="page-section">
         <div className="shell story-split">
-          <div className="content-photo">
+          <div className="content-photo home-team-photo">
             <img src={IMAGES.partnersCasual} alt="Babasu partners" />
           </div>
           <div className="content-block">

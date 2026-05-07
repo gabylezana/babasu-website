@@ -1343,6 +1343,12 @@ img {
   overflow: hidden;
 }
 
+.home-team-photo img {
+  object-position: 56% 46%;
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
 .content-block {
   display: flex;
   flex-direction: column;
@@ -2862,6 +2868,15 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .home-team-photo {
+    aspect-ratio: 5 / 6;
+  }
+
+  .home-team-photo img {
+    object-position: 55% 32%;
+    transform: scale(1.18);
+  }
+
   .nav-shell {
     display: grid;
   }
@@ -2992,6 +3007,15 @@ img {
   .philosophy-story-heading h2,
   .philosophy-closing h2 {
     font-size: clamp(34px, 10vw, 54px);
+  }
+
+  .home-team-photo {
+    aspect-ratio: 1 / 1.14;
+  }
+
+  .home-team-photo img {
+    object-position: 55% 30%;
+    transform: scale(1.22);
   }
 
   .philosophy-practice-item h3 {

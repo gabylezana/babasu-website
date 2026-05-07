@@ -210,7 +210,7 @@ export function Numbers() {
     { k: '28', v: 'Active investments' },
     { k: '11', v: 'Countries reached' },
     { k: '$120M+', v: 'Assets under management' },
-    { k: '2021', v: 'Founded in Santa Cruz' },
+    { k: '2024', v: 'Founded in Santa Cruz' },
   ];
   return (
     <section
