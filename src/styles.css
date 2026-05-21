@@ -2011,6 +2011,22 @@ img {
   object-fit: contain;
 }
 
+.portfolio-spotlight-card[data-company='tugerente'] .portfolio-spotlight-brand.has-logo {
+  min-height: 34px;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.portfolio-spotlight-card[data-company='tugerente'] .portfolio-spotlight-brand.has-logo img {
+  width: 176px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
 .portfolio-spotlight-brand.has-wordmark strong {
   font-family: var(--font-display);
   font-size: clamp(24px, 3vw, 30px);
@@ -2348,6 +2364,10 @@ img {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.portfolio-company-card[data-company='tugerente'] .portfolio-company-logo-badge {
+  background: rgba(14, 42, 34, 0.9);
 }
 
 .portfolio-card-note {

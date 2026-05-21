@@ -42,7 +42,7 @@ function PortfolioCompanyCard({ company }) {
     : (company.externalLabel || 'Visit landing');
 
   return (
-    <article className="portfolio-company-card" data-accent={company.accent}>
+    <article className="portfolio-company-card" data-accent={company.accent} data-company={company.slug}>
       <CompanyVisual company={company} />
       <div className="portfolio-company-card-body">
         <div className="portfolio-company-card-meta">
@@ -90,7 +90,7 @@ function HeroSpotlightPanel({ company, index, total }) {
     : (company.externalLabel || 'Visit landing');
 
   return (
-    <article className="portfolio-spotlight-card" data-accent={company.accent}>
+    <article className="portfolio-spotlight-card" data-accent={company.accent} data-company={company.slug}>
       <div className="portfolio-spotlight-head">
         <div
           className={`portfolio-spotlight-brand ${company.logo ? 'has-logo' : 'has-wordmark'}`.trim()}
