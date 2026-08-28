@@ -13,7 +13,6 @@ export default defineConfig({
         portfolio: resolve(__dirname, 'portfolio/index.html'),
         tugerente: resolve(__dirname, 'portfolio/tugerente/index.html'),
         reva: resolve(__dirname, 'portfolio/reva/index.html'),
-        manda: resolve(__dirname, 'portfolio/manda/index.html'),
         cirkula: resolve(__dirname, 'portfolio/cirkula/index.html'),
         mobi: resolve(__dirname, 'portfolio/mobi/index.html'),
         team: resolve(__dirname, 'team/index.html'),

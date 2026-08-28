@@ -3,7 +3,6 @@ import partnersSitting from '../assets/team/partners-sitting.jpg';
 import partnersCasual from '../assets/team/partners-casual.jpg';
 import teamGroup from '../assets/team/team-group.jpg';
 import jimmyMichelle from '../assets/team/jimmy-michelle.jpg';
-import coupleHug from '../assets/team/couple-hug-1.jpg';
 import corinaPortrait from '../assets/team/corina-marion.png';
 import salomonPortrait from '../assets/team/salomon-eid.jpeg';
 import veronicaPortrait from '../assets/team/veronica-cespedes.jpg';
@@ -15,7 +14,6 @@ import tugerenteCardCover from '../assets/portfolio/tugerente-card-cover.png';
 import tugerenteLogo from '../assets/portfolio/tugerente-logo.png';
 import tugerenteFounder from '../assets/team/freddy-arredondo.jpg';
 import revaLogo from '../assets/portfolio/reva-logo.png';
-import mandaLogo from '../assets/portfolio/manda-logo.jpeg';
 import cirkulaLogo from '../assets/portfolio/cirkula-logo.png';
 import mobiAction from '../assets/portfolio/mobi-en-accion.jpeg';
 import mobiLogo from '../assets/portfolio/mobi-logo.jpeg';
@@ -215,29 +213,6 @@ export const COMPANIES = [
     href: 'portfolio/reva/',
   },
   {
-    slug: 'manda',
-    name: 'Manda',
-    stage: 'Selected company',
-    category: 'Fintech infrastructure',
-    region: 'United States, Argentina, LatAm',
-    summary:
-      'No-code and low-code fintech infrastructure for teams that want to launch financial products without building the full stack from zero.',
-    thesis:
-      'Manda compresses months of fintech build time into modular components that teams can deploy faster and more cheaply.',
-    support:
-      'It fits our portfolio because infrastructure matters most when it lowers the barrier for new operators to launch regulated products.',
-    externalHref: 'https://www.linkedin.com/company/somosmanda/',
-    externalLabel: 'Visit company page',
-    accent: 'sand',
-    image: coupleHug,
-    heroImage: coupleHug,
-    cardImage: coupleHug,
-    logo: mandaLogo,
-    cardLabel: 'Fini y Tomas',
-    cardMeta: 'Fintech infra',
-    href: 'portfolio/manda/',
-  },
-  {
     slug: 'cirkula',
     name: 'Cirkula',
     stage: 'Selected company',
@@ -402,64 +377,6 @@ export const COMPANY_PROFILES = {
     ],
     stageImage: teamGroup,
     closingImage: teamGroup,
-  },
-  manda: {
-    heroTitle:
-      'Fintech infrastructure for faster product launches.',
-    heroBody:
-      'Manda gives teams modular financial components to launch products with less build time.',
-    badgeNote: 'Portfolio company',
-    badgeBody:
-      'A modular fintech stack built to reduce the cost and time required to launch wallets and financial features.',
-    facts: [
-      { label: 'Public company page', value: 'LinkedIn / somosmanda' },
-      { label: 'Sector', value: 'Fintech infrastructure' },
-      { label: 'Model', value: 'No-code / low-code financial components' },
-      { label: 'Core use case', value: 'Faster launch of fintech products' },
-    ],
-    overviewTitle:
-      'Infrastructure businesses matter when they compress complexity for everyone else.',
-    overviewBody: [
-      'Manda’s proposition is straightforward: give companies reusable financial building blocks so they can launch products faster and without assembling the entire operating stack themselves.',
-      'That matters in Latin American fintech because product launches tend to be slow, expensive and highly constrained by technical and regulatory complexity. Lowering that barrier is valuable infrastructure work.',
-    ],
-    spotlight: {
-      label: 'Product spotlight',
-      title: 'Launch fintech products in days, not months',
-      body:
-        'The appeal here is speed with modularity. Manda positions itself as a way for teams to test and deploy wallets and related flows without carrying the full burden of custom development from day one.',
-      image: coupleHug,
-      alt: 'Manda company visual',
-    },
-    whyTitle:
-      'Good infrastructure companies create leverage for other operators, not just convenience.',
-    whyBody:
-      'Manda belongs in that category because its product reduces build time, lowers upfront cost and makes fintech deployment more accessible to teams that otherwise could not justify the full investment.',
-    highlights: [
-      {
-        title: 'Time compression',
-        body:
-          'The company’s value proposition is centered on reducing the timeline to launch financial products through modular components.',
-      },
-      {
-        title: 'Lower implementation cost',
-        body:
-          'A no-code and low-code approach matters most when it turns a high-friction technical project into something more commercially realistic.',
-      },
-      {
-        title: 'Infrastructure logic',
-        body:
-          'Rather than compete as a single fintech app, Manda sits underneath product creation itself, which is a more structural place to build.',
-      },
-    ],
-    closingTitle:
-      'We like these businesses when they become the enabling layer behind multiple launches.',
-    closingBody: [
-      'Manda fits our portfolio because it is not only solving for one end-user experience. It is giving other operators a faster route to market.',
-      'That kind of leverage is exactly why infrastructure can be so powerful when the execution is strong.',
-    ],
-    stageImage: coupleHug,
-    closingImage: coupleHug,
   },
   cirkula: {
     heroTitle:

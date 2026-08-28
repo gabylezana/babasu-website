@@ -1,0 +1,7 @@
+{
+  "files": ["**/index.html"],
+  "exclude": ["dist/**", "dist-relative/**"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

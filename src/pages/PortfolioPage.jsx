@@ -158,9 +158,9 @@ export function PortfolioPage() {
           <div className="portfolio-prod-copy">
             <p className="section-eyebrow">Portfolio</p>
             <h1>
-              Five companies.
+              Four companies.
               <br />
-              Five precise
+              Four precise
               <br />
               operating bets.
             </h1>
